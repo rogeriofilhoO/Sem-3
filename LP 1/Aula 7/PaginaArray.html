@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Elementos em um Array</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #333;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            background-color: rgb(79, 104, 104);
+            list-style: none;
+            font-size: 30px;
+            border: 1px black;
+            border-radius: 2px;
+            width: 800px;
+
+        }
+
+        button {
+            background-color: crimson;
+            font-size: 20px;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+
+            transition: 1s;
+        }
+
+        button:hover {
+            border-radius: 20px;
+            background-color: rgb(243, 85, 116);
+            padding: 15px 25px;
+            transition: 0.5s;
+
+            box-shadow: #333;
+        }
+
+        h2 {
+            margin: 20px;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        input {
+            padding: 20px;
+            font-size: 20px;
+            border-radius: 37px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Cadastro de Elementos em um Array</h1>
+
+        <label for="novo-elemento">Digite um novo elemento:</label>
+
+        <input type="text" id="novo-elemento">
+        <br>
+        <br>
+        <button onclick="adicionarElemento()">Adicionar</button>
+        <br>
+        <br>
+        <button onclick="removerElemento()">Remover</button>
+        <br>
+        <br>
+        <button onclick="editarElemento()">Editar</button>
+
+        <h2>Lista de Elementos:</h2>
+        <ul id="lista-elementos"></ul>
+    </center>
+
+    <script>
+        let elementos = []; //Array vazio
+
+        function adicionarElemento() {
+            let novoElemento = document.getElementById("novo-elemento").value;//Pega o valor da caixa de texto
+            
+            elementos.push(novoElemento);// Adiciona o novo elemento no array
+
+            document.getElementById("novo-elemento").value = ""; //Limpa a caixa de texto
+
+            atualizarListaElementos();// Atualiza a lista de elementos
+        }
+
+        function atualizarListaElementos() {
+            //Pega a lista de elementos
+            let listaElementos = document.getElementById("lista-elementos");
+            listaElementos.innerHTML = "";  //Limpa a lista de elementos
+
+            for(let i = 0; i < elementos.length; i++) { //Percorre o array
+                let itemLista = document.createElement("li"); //cria um item da lista
+
+                itemLista.innerHTML = elementos[i]; //Adiciona o elemento no item da lista
+                //Adiciona o item da lista na lista de elementos
+                listaElementos.appendChild(itemLista);
+            }
+        }
+
+        function removerElemento() {
+            alert("Isso vai eliminar o primeiro elemento!")
+            elementos.shift();
+
+            atualizarListaElementos();
+        }
+
+        function editarElemento() {
+            var n = prompt("Posição (1-10):")
+            var cont = prompt("Trocar para:")
+            elementos[n-1] = cont;
+
+            atualizarListaElementos();
+        }
+    </script>
+</body>
+</html>

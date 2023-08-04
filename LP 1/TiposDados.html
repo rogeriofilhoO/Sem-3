@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão Tipos de Dados</title>
+    <link rel="shortcut icon" href="https://pbs.twimg.com/profile_images/804765023188840448/l12RIW8z_400x400.jpg">
+    <script>
+        //Tipos de dados
+
+        //String
+        var nome = "João";
+        document.write(nome + ' ');
+        document.write(typeof nome + '<br><br>');
+
+        //Number
+        var idade = 20;
+        document.write(idade + " ");
+        document.write(typeof idade + "<br><br>");
+        
+        //boolean
+        var verdadeiro = true;
+        document.write(verdadeiro + " ");
+        document.write(typeof verdadeiro + "<br><br>");
+
+        //undefined
+        var indefinido;
+        document.write(indefinido + " ");
+        document.write(typeof indefinido + "<br><br>");
+        
+        //null
+        var nulo = null ;
+        document.write(nulo + " ");
+        document.write(typeof nulo + "<br><br>");
+
+        //Object
+        var lista = {nomeObjeto: "Cadeira", tamanho: 45 + "cm"};
+        document.write(lista + " ");
+        document.write(typeof lista + "<br><br>");
+
+        //Array
+        var lista = ['Joao , 25'];
+        document.write(lista + " ");
+        document.write(typeof lista + "<br><br>");
+        
+        // Os tipos das funções
+        //Function
+        function tradicional() {
+            return "função tradicional | função declada"
+        }
+        document.write(tradicional() + "<br><br>");
+
+        //Função anonima
+        var funcaoAnonima = function () {
+            return 'Função anonima'
+        }
+        document.write(funcaoAnonima() + "<br><br>");
+
+        //Arrow function, uma nova forma de função anonima
+        var ArrowFunction = () => {
+            return "Arrow function, uma nova forma de função anonima"
+        }
+        document.write(ArrowFunction() + "<br><br>");
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

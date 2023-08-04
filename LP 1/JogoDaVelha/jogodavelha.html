@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+
+    <script>
+        let matriz = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ] // 0 = VAZIO; 1 = x, 2 = O
+
+        let jogador = 1; // 1 = x , 2 = O
+        let jogadas = 0; // Contador de jogadas
+        let FimDeJogo = false;
+
+        function jogar(linha, coluna) {
+            if(FimDeJogo) {
+                return;
+            }
+
+            if(matriz[linha][coluna] == 0) {
+                matriz[linha][coluna] = jogador;
+                jogadas++;
+            }
+
+            if(jogador == 1) {
+                jogador = 2;
+            } else {
+                jogador = 1;
+            }
+
+            if(jogadas >= 5) {
+                verificarFimJogo();
+            }
+
+            imprimirMatriz();
+        }
+
+        function verificarFimJogo() { //função verfica como finalizou o jogo
+            //verficar as linhas
+            for(let i = 0; i < matriz.length; i++) {
+                if(matriz[i][0] == matriz[i][1] && 
+                    matriz[i][1] == matriz[i][2] && matriz[i][0] != 0) {
+                        alert("Fim de Jogo! O jogador " + matriz[i][0] + " Venceu");
+                        FimDeJogo = true;
+                        return;
+                    
+                }
+            }
+
+            //colunas
+            for(let i = 0; i < matriz.length; i++) {
+                if(matriz[0][i] == matriz[1][0] && 
+                    matriz[1][i] == matriz[2][i] && matriz[0][i] != 0) {
+                        alert("Fim de Jogo! O jogador " + matriz[i][0] + " Venceu");
+                        FimDeJogo = true;
+                        return;
+                    
+                }
+            }
+
+            //Diagonais
+            if(matriz[0][0] == matriz[1][1] &&
+            matriz[1][1] == matriz[2][2] && matriz[0][0] != 0) {
+                alert("Fim de Jogo! O jogador " + matriz[0][0] + " Venceu");
+                FimDeJogo = true;
+                return;
+            }
+            if(matriz[0][2] == matriz[1][1] &&
+            matriz[1][1] == matriz[2][0] && matriz[0][2] != 0) {
+                alert("Fim de Jogo! O jogador " + matriz[0][0] + " Venceu");
+                FimDeJogo = true;
+                return;
+            }
+
+            //se tiver 9 jogadas, todos os campos foram marcados
+            if(jogadas == 9) {
+                alert("Fim de Jogo! Deu Velha")
+                FimDeJogo = true;
+                return;
+            }
+            
+        }
+
+        function imprimirMatriz() {
+            var tabela = document.getElementsByTagName("table")[0];
+            var linhas = tabela.getElementsByTagName("tr");
+            for(var i = 0; i < linhas.length; i++) {
+                var colunas = linhas[i].getElementsByTagName("td");
+
+                for(var j = 0; j < colunas.length; j++) {
+                    if(matriz[i][j] == 1) {
+                        colunas[j].innerHTML = "X";
+                    } else if(matriz[i][j] == 2) {
+                        colunas[j].innerHTML = "O";
+                    } else {
+                        colunas[j].innerHTML = "";
+                    }
+                }
+            }
+        }
+
+    </script>
+
+    <style>
+        td {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        /* quando cursor estiver em cima */
+        td:hover {
+            cursor: pointer;
+            background-color: rgba(26, 253, 94, 0.473);
+        }
+
+        table {
+            border: 1px solid rgb(63, 41, 210);
+        }
+    </style>
+</head>
+
+<body onload="imprimirMatriz()">
+    <table border="1">
+        <!-- tr é a linha e td é coluna -->
+        <tr>
+            <td onclick="jogar(0,0)"></td>
+            <td onclick="jogar(0,1)"></td>
+            <td onclick="jogar(0,2)"></td>
+        </tr>
+        <tr>
+            <td onclick="jogar(1,0)"></td>
+            <td onclick="jogar(1,1)"></td>
+            <td onclick="jogar(1,2)"></td>
+        </tr>
+        <tr>
+            <td onclick="jogar(2,0)"></td>
+            <td onclick="jogar(2,1)"></td>
+            <td onclick="jogar(2,2)"></td>
+        </tr>
+
+    </table>
+</body>
+</html>

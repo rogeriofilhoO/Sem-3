@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+#wrapper {
+    margin: 0 auto;
+    padding-bottom: 40px;
+    width: 800px;
+}
+
+header {
+    padding-top: 20px;
+    border-bottom: 1px solid #DDD;
+    margin-bottom: 10px;
+    width: 800px;
+    background-color: #FFF;
+}
+
+ul {
+    display: block;
+    list-style-type: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+nav {
+    display: block;
+}
+
+li  {
+    list-style: none;
+}

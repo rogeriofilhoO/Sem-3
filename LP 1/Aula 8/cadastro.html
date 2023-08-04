@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Informações</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <h1>Cadastro de Informações</h1>
+        <div id="inputs">
+            <br>
+            <label for="novo-elemento">Digite nome:</label>
+            <input type="text" id="nome">
+            <br>
+            <br>
+
+            <label for="novo-elemento">Digite Sobrenome:</label>
+            <input type="text" id="sobrenome">
+            <br>
+            <br>
+
+            <label for="novo-elemento">Data de Nascimento:</label>
+            <input type="date" id="data">
+            <br>
+            <br>
+
+            <label for="novo-elemento">Digite Endereço:</label>
+            <input type="text" id="ed">
+            <br>
+            <br>
+
+            <label for="novo-elemento">Digite Email:</label>
+            <input type="text" id="email">
+            <br>
+            <br>
+
+            <button onclick="adicionarElemento()">Adicionar</button>
+            <br>
+            <br>
+
+            <button onclick="removerElemento()">Remover</button>
+            <br>
+            <br>
+
+            <button onclick="editarElemento()">Editar</button>
+            <br>
+            <br>
+        </div>
+        <h2>Lista de Elementos</h2>
+        <ul id="tabela">
+        </ul>
+    </div>
+
+    <script src="code.js"></script>
+</body>
+
+</html>
